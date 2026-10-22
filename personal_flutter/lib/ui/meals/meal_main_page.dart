@@ -5,6 +5,8 @@ import 'package:personal_flutter/blocs/meal/meal_events.dart';
 import 'package:personal_flutter/blocs/meal/meal_states.dart';
 import 'package:personal_flutter/network/models/meal_model.dart';
 import 'package:personal_flutter/network/repo/repositories.dart';
+import 'package:personal_flutter/ui/meals/meal_category_page.dart';
+import 'package:personal_flutter/ui/meals/meal_random_page.dart';
 import 'package:personal_flutter/utils/utils.dart';
 
 class MealMainPage extends StatelessWidget {
@@ -14,6 +16,7 @@ class MealMainPage extends StatelessWidget {
       "Welcome to TheMealDB: An open, crowd-sourced database of recipes from around the world.";
   static const String description2 =
       "Select a category to show some recipes🥨🥗";
+  static const String randomButton = "Try a random recipe 👨🏻‍🍳";
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +44,15 @@ class MealMainPage extends StatelessWidget {
                 Text(
                   description2,
                   style: Theme.of(context).textTheme.titleSmall,
+                ),
+                OutlinedButton(
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => MealRandomPage()),
+                    ),
+                  },
+                  child: Text(randomButton),
                 ),
                 Expanded(child: blocBody()),
               ],
@@ -82,24 +94,37 @@ Widget blocBody() {
               );
               return Padding(
                 padding: EdgeInsetsGeometry.all(8.0),
-                child: Card(
-                  color: Theme.of(context).primaryColor,
-                  child: ListTile(
-                    title: Text(
-                      '${categories[index].strCategory} ID: ${categories[index].idCategory}',
-                      style: const TextStyle(color: Colors.white),
-                    ),
-
-                    subtitle: Text(
-                      'Meal id: ${desc}',
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 196, 172, 236),
+                child: GestureDetector(
+                  onTap: () => {
+                    debugPrint("tapped: ${categories[index].strCategory}"),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => MealCategoryPage(
+                          categoryInput: categories[index].strCategory ?? '',
+                        ),
                       ),
                     ),
+                  },
+                  child: Card(
+                    color: Theme.of(context).primaryColor,
+                    child: ListTile(
+                      title: Text(
+                        '${categories[index].strCategory} ID: ${categories[index].idCategory}',
+                        style: const TextStyle(color: Colors.white),
+                      ),
 
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        categories[index].strCategoryThumb.toString(),
+                      subtitle: Text(
+                        desc,
+                        style: const TextStyle(
+                          color: Color.fromARGB(255, 196, 172, 236),
+                        ),
+                      ),
+
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          categories[index].strCategoryThumb.toString(),
+                        ),
                       ),
                     ),
                   ),

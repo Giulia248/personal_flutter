@@ -4,6 +4,8 @@ class MealModel {
   String? strMealThumb;
   String? idMeal;
   String? strCountry;
+  String? strInstructions;
+  String? strCategory;
 
   MealModel({
     this.id,
@@ -11,6 +13,8 @@ class MealModel {
     this.strMealThumb,
     this.idMeal,
     this.strCountry,
+    this.strInstructions,
+    this.strCategory,
   });
 
   MealModel.fromJson(Map<String, dynamic> json) {
@@ -19,6 +23,8 @@ class MealModel {
     strMealThumb = json['strMealThumb'];
     idMeal = json['idMeal'];
     strCountry = json['strCountry'];
+    strInstructions = json['strInstructions'];
+    strCategory = json['strCategory'];
   }
 }
 
