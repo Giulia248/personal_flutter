@@ -30,19 +30,24 @@ class DraftPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(title)),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(message, style: Theme.of(context).textTheme.titleMedium),
-            if (onPressed != null) ...[
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: onPressed,
-                child: const Text('Press me'),
-              ),
+      body: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(message, style: Theme.of(context).textTheme.titleMedium),
+              if (onPressed != null) ...[
+                const SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: onPressed,
+                  child: const Text('Press me'),
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
