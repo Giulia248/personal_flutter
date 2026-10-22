@@ -37,7 +37,10 @@ class DraftPage extends StatelessWidget {
             Text(message, style: Theme.of(context).textTheme.titleMedium),
             if (onPressed != null) ...[
               const SizedBox(height: 16),
-              ElevatedButton(onPressed: onPressed, child: const Text('Press me')),
+              ElevatedButton(
+                onPressed: onPressed,
+                child: const Text('Press me'),
+              ),
             ],
           ],
         ),
