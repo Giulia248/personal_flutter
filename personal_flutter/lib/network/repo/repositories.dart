@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
+import 'package:personal_flutter/network/models/meal_model.dart';
 import 'package:personal_flutter/network/models/user_model.dart';
 
 class UserRepository {
@@ -14,6 +15,50 @@ class UserRepository {
     if (response.statusCode == 200) {
       final List result = jsonDecode(response.body)['data'];
       return result.map((e) => UserModel.fromJson(e)).toList();
+    } else {
+      throw Exception(response.reasonPhrase);
+    }
+  }
+}
+
+class MealRepository {
+  // Lookup a single random meal
+  String randomMealUrl = 'https://www.themealdb.com/api/json/v1/1/random.php';
+  // List all meal categories
+  String allCatUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php';
+
+  Future<List<MealModel>> getRandomMeal() async {
+    Response response = await get(Uri.parse(randomMealUrl));
+
+    if (response.statusCode == 200) {
+      final List result = jsonDecode(response.body)['meals'];
+      return result.map((e) => MealModel.fromJson(e)).toList();
+    } else {
+      throw Exception(response.reasonPhrase);
+    }
+  }
+
+  Future<List<CategoryModel>> getAllCat() async {
+    Response response = await get(Uri.parse(allCatUrl));
+
+    if (response.statusCode == 200) {
+      final List result = jsonDecode(response.body)['categories'];
+      return result.map((e) => CategoryModel.fromJson(e)).toList();
+    } else {
+      throw Exception(response.reasonPhrase);
+    }
+  }
+
+  // Filter by Category, e.g. getMeal('Seafood')
+  Future<List<MealModel>> getMeal(String category) async {
+    final uri = Uri.https('www.themealdb.com', '/api/json/v1/1/filter.php', {
+      'c': category,
+    });
+    Response response = await get(uri);
+
+    if (response.statusCode == 200) {
+      final List result = jsonDecode(response.body)['meals'];
+      return result.map((e) => MealModel.fromJson(e)).toList();
     } else {
       throw Exception(response.reasonPhrase);
     }

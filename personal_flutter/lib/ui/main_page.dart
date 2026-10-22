@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_flutter/ui/draft_page.dart';
 import 'package:personal_flutter/ui/home_page.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:personal_flutter/ui/meals/meal_main_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -53,6 +54,13 @@ class _MainPageState extends State<MainPage> {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(builder: (_) => const HomePage()),
+                ),
+              ),
+              OutlinedButton(
+                child: Text("Meal Page API fetch bloc"),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const MealMainPage()),
                 ),
               ),
               const Spacer(),
