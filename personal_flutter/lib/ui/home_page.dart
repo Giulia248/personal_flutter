@@ -1,3 +1,25 @@
+// As you can see we have MultiBlocProvider coming from our bloc library.
+// Because we want to load data from server and want to load it only once, so in our build method we inject the UserRepository.
+// With MultiBlocProvider form bloc you can add multiple Blocs in your class to use them all over it.
+// Also where you can to place this repository you need to have a class. In our case it is Scaffold.
+
+// So what MultiBlocProvider is doing is that, it moving the data from server and it is making the data and states available all over the child.
+
+// Inside the blocBody you can see the BlocProvider.
+// If you are familiar with Getx it is like Get.put. Inside the BlocProvider we inject our bloc i.e UserBloc with the repository.
+// As we have already inject our bloc in the top we can access the event inside the blocBody.
+
+// First after injecting the bloc with the repository we then add the event i.e LoadUserEvent with the cascading operator which triggers the UserLoadingState
+// from the UserBloc.
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:personal_flutter/blocs/app_blocs.dart';
+import 'package:personal_flutter/blocs/app_events.dart';
+import 'package:personal_flutter/blocs/app_states.dart';
+import 'package:personal_flutter/network/models/user_model.dart';
+import 'package:personal_flutter/network/repo/repositories.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -10,7 +32,7 @@ class HomePage extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        appBar: AppBar(title: const Text('The BloC App')),
+        appBar: AppBar(title: const Text('Api fetch BLOC')),
         body: blocBody(),
       ),
     );

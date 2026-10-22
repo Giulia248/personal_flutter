@@ -1,3 +1,7 @@
+// Equatable is used to compare the values wether they are same or not. If two variable have the same values we are not going to change or update UI.
+
+// First to create the state we need to create the abstract class which needs to extends the equatable.
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_flutter/network/models/user_model.dart';
