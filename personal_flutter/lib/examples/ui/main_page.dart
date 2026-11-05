@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:personal_flutter/utils/draft_page.dart';
-import 'package:personal_flutter/ui/home_page.dart';
+import 'package:personal_flutter/examples/ui/home_page.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:personal_flutter/ui/meals/meal_main_page.dart';
+import 'package:personal_flutter/examples/ui/meals/meal_main_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

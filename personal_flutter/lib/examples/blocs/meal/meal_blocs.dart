@@ -3,11 +3,11 @@
 // After call the initial value we are calling on method.
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personal_flutter/blocs/meal/meal_events.dart';
-import 'package:personal_flutter/blocs/meal/meal_states.dart';
-import 'package:personal_flutter/network/models/meal_model.dart';
+import 'package:personal_flutter/examples/blocs/meal/meal_events.dart';
+import 'package:personal_flutter/examples/blocs/meal/meal_states.dart';
+import 'package:personal_flutter/examples/network/models/meal_model.dart';
 
-import 'package:personal_flutter/network/repo/repositories.dart';
+import 'package:personal_flutter/examples/network/repo/repositories.dart';
 
 class MealBloc extends Bloc<MealEvent, MealState> {
   final MealRepository _mealRepository;

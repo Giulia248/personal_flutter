@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personal_flutter/blocs/meal/meal_blocs.dart';
-import 'package:personal_flutter/blocs/meal/meal_events.dart';
-import 'package:personal_flutter/blocs/meal/meal_states.dart';
-import 'package:personal_flutter/network/models/meal_model.dart';
-import 'package:personal_flutter/network/repo/repositories.dart';
-import 'package:personal_flutter/ui/meals/meal_category_page.dart';
-import 'package:personal_flutter/ui/meals/meal_random_page.dart';
+import 'package:personal_flutter/examples/blocs/meal/meal_blocs.dart';
+import 'package:personal_flutter/examples/blocs/meal/meal_events.dart';
+import 'package:personal_flutter/examples/blocs/meal/meal_states.dart';
+import 'package:personal_flutter/examples/network/models/meal_model.dart';
+import 'package:personal_flutter/examples/network/repo/repositories.dart';
+import 'package:personal_flutter/examples/ui/meals/meal_category_page.dart';
+import 'package:personal_flutter/examples/ui/meals/meal_random_page.dart';
 import 'package:personal_flutter/utils/utils.dart';
 
 class MealMainPage extends StatelessWidget {

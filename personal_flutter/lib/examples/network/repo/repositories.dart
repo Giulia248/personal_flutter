@@ -3,9 +3,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-import 'package:personal_flutter/network/models/meal_model.dart';
-import 'package:personal_flutter/network/models/user_model.dart';
-import 'package:personal_flutter/network/models/weather_model.dart';
+import 'package:personal_flutter/examples/network/models/meal_model.dart';
+import 'package:personal_flutter/examples/network/models/user_model.dart';
+import 'package:personal_flutter/examples/network/models/weather_model.dart';
 
 class UserRepository {
   String userUrl = 'https://reqres.in/api/users?page=2';

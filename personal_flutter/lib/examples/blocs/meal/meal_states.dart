@@ -4,7 +4,7 @@
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_flutter/network/models/meal_model.dart';
+import 'package:personal_flutter/examples/network/models/meal_model.dart';
 
 @immutable
 abstract class MealState extends Equatable {}
