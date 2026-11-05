@@ -9,10 +9,10 @@ import 'package:flutter/material.dart';
 ///
 /// Or push it as a new screen:
 /// ```dart
-/// Navigator.push(
-///   context,
-///   MaterialPageRoute(builder: (_) => const DraftPage()),
-/// );
+// Navigator.push(
+//   context,
+//   MaterialPageRoute(builder: (_) => const DraftPage()),
+// );
 /// ```
 class DraftPage extends StatelessWidget {
   const DraftPage({

@@ -14,9 +14,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:personal_flutter/blocs/app_blocs.dart';
-import 'package:personal_flutter/blocs/app_events.dart';
-import 'package:personal_flutter/blocs/app_states.dart';
+import 'package:personal_flutter/blocs/user/user_blocs.dart';
+import 'package:personal_flutter/blocs/user/user_events.dart';
+import 'package:personal_flutter/blocs/user/user_states.dart';
 import 'package:personal_flutter/network/models/user_model.dart';
 import 'package:personal_flutter/network/repo/repositories.dart';
 
